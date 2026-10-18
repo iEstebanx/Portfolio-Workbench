@@ -53,5 +53,3 @@
 - Developed and implemented a TESDA enrollment system, eliminating manual paperwork and reducing registration turnaround times.
 - Developed a Venue Reservation System to manage and automate the scheduling and booking of training facilities.
 - Performed basic hardware and software troubleshooting and maintenance on office computers and peripherals.
-
----
