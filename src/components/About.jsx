@@ -14,6 +14,7 @@ import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import { portfolioData } from '../data/portfolioData';
+import Reveal from './Reveal';
 
 export default function About() {
   const theme = useTheme();
@@ -32,7 +33,8 @@ export default function About() {
       <Container maxWidth="lg">
         <Grid container spacing={{ xs: 4, md: 6 }} alignItems="stretch">
           {/* Left Column: Who I Am */}
-          <Grid item xs={12} md={7}>
+          <Grid size={{ xs: 12, md: 7 }}>
+            <Reveal>
             <Typography
               variant="overline"
               sx={{
@@ -82,10 +84,12 @@ export default function About() {
             >
               With practical experience developing full-stack web applications like Point of Sale & Inventory systems, automated student enrollment forms, and venue reservation management, alongside hands-on workstation troubleshooting and peripheral setup, I bring a reliable and versatile technical foundation to any team.
             </Typography>
+            </Reveal>
           </Grid>
 
           {/* Right Column: Clean Profile Details Card */}
-          <Grid item xs={12} md={5}>
+          <Grid size={{ xs: 12, md: 5 }}>
+            <Reveal delay={150} sx={{ height: '100%' }}>
             <Paper
               elevation={0}
               sx={{
@@ -168,6 +172,7 @@ export default function About() {
                 </Box>
               </Stack>
             </Paper>
+            </Reveal>
           </Grid>
         </Grid>
       </Container>

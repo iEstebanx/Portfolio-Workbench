@@ -12,6 +12,7 @@ import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 import { portfolioData } from '../data/portfolioData';
+import Reveal from './Reveal';
 
 export default function Experience() {
   const theme = useTheme();
@@ -29,7 +30,7 @@ export default function Experience() {
     >
       <Container maxWidth="lg">
         {/* Section Header */}
-        <Box sx={{ textAlign: 'center', mb: { xs: 5, md: 7 } }}>
+        <Reveal sx={{ textAlign: 'center', mb: { xs: 5, md: 7 } }}>
           <Typography
             variant="overline"
             sx={{
@@ -68,9 +69,10 @@ export default function Experience() {
           >
             Hands-on technical experience delivering web applications and IT support.
           </Typography>
-        </Box>
+        </Reveal>
 
         {/* Experience Card */}
+        <Reveal delay={100}>
         <Paper
           elevation={0}
           sx={{
@@ -131,12 +133,12 @@ export default function Experience() {
           {/* Duties list */}
           <Stack spacing={1.8} sx={{ mb: 3.5, mt: 3 }}>
             {exp.duties.map((duty, idx) => (
-              <Box key={idx} sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.5 }}>
+              <Reveal key={idx} delay={250 + idx * 120} y={20} sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.5 }}>
                 <CheckCircleOutlinedIcon sx={{ fontSize: 20, color: theme.palette.primary.main, mt: 0.2, flexShrink: 0 }} />
                 <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.7, fontSize: '0.98rem' }}>
                   {duty}
                 </Typography>
-              </Box>
+              </Reveal>
             ))}
           </Stack>
 
@@ -158,6 +160,7 @@ export default function Experience() {
             ))}
           </Box>
         </Paper>
+        </Reveal>
       </Container>
     </Box>
   );

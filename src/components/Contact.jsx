@@ -16,6 +16,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import SendIcon from '@mui/icons-material/Send';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import { portfolioData } from '../data/portfolioData';
+import Reveal from './Reveal';
 
 export default function Contact() {
   const theme = useTheme();
@@ -64,7 +65,7 @@ export default function Contact() {
     >
       <Container maxWidth="md">
         {/* Section Header */}
-        <Box sx={{ textAlign: 'center', mb: { xs: 5, md: 6 } }}>
+        <Reveal sx={{ textAlign: 'center', mb: { xs: 5, md: 6 } }}>
           <Typography
             variant="overline"
             sx={{
@@ -140,77 +141,79 @@ export default function Contact() {
               {copied ? 'Copied' : 'Copy'}
             </Button>
           </Box>
-        </Box>
+        </Reveal>
 
         {/* Clean Contact Form */}
-        <Paper
-          elevation={0}
-          component="form"
-          onSubmit={handleSubmit}
-          sx={{
-            p: { xs: 3, sm: 4.5 },
-            borderRadius: 3.5,
-            border: `1px solid ${theme.palette.divider}`,
-            backgroundColor: isDark ? '#111827' : '#FFFFFF',
-            maxWidth: 640,
-            mx: 'auto',
-          }}
-        >
-          <Stack spacing={2.5}>
-            <TextField
-              required
-              fullWidth
-              label="Name"
-              name="name"
-              placeholder="Your name"
-              value={formData.name}
-              onChange={handleChange}
-              variant="outlined"
-            />
+        <Reveal delay={150}>
+          <Paper
+            elevation={0}
+            component="form"
+            onSubmit={handleSubmit}
+            sx={{
+              p: { xs: 3, sm: 4.5 },
+              borderRadius: 3.5,
+              border: `1px solid ${theme.palette.divider}`,
+              backgroundColor: isDark ? '#111827' : '#FFFFFF',
+              maxWidth: 640,
+              mx: 'auto',
+            }}
+          >
+            <Stack spacing={2.5}>
+              <TextField
+                required
+                fullWidth
+                label="Name"
+                name="name"
+                placeholder="Your name"
+                value={formData.name}
+                onChange={handleChange}
+                variant="outlined"
+              />
 
-            <TextField
-              required
-              fullWidth
-              type="email"
-              label="Email"
-              name="email"
-              placeholder="you@example.com"
-              value={formData.email}
-              onChange={handleChange}
-              variant="outlined"
-            />
+              <TextField
+                required
+                fullWidth
+                type="email"
+                label="Email"
+                name="email"
+                placeholder="you@example.com"
+                value={formData.email}
+                onChange={handleChange}
+                variant="outlined"
+              />
 
-            <TextField
-              required
-              fullWidth
-              multiline
-              rows={4}
-              label="Message"
-              name="message"
-              placeholder="Tell me about your project or opportunity..."
-              value={formData.message}
-              onChange={handleChange}
-              variant="outlined"
-            />
+              <TextField
+                required
+                fullWidth
+                multiline
+                rows={4}
+                label="Message"
+                name="message"
+                placeholder="Tell me about your project or opportunity..."
+                value={formData.message}
+                onChange={handleChange}
+                variant="outlined"
+              />
 
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              size="large"
-              fullWidth
-              startIcon={<SendIcon />}
-              sx={{
-                py: 1.5,
-                borderRadius: 2.5,
-                fontWeight: 700,
-                fontSize: '1rem',
-              }}
-            >
-              Send Message
-            </Button>
-          </Stack>
-        </Paper>
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                size="large"
+                fullWidth
+                startIcon={<SendIcon />}
+                sx={{
+                  py: 1.5,
+                  borderRadius: 2.5,
+                  fontWeight: 700,
+                  fontSize: '1rem',
+                }}
+              >
+                Send Message
+              </Button>
+            </Stack>
+          </Paper>
+        </Reveal>
       </Container>
 
       {/* Copy Toast */}

@@ -9,6 +9,7 @@ import {
   useTheme,
 } from '@mui/material';
 import { portfolioData } from '../data/portfolioData';
+import Reveal from './Reveal';
 
 export default function Projects() {
   const theme = useTheme();
@@ -26,7 +27,7 @@ export default function Projects() {
     >
       <Container maxWidth="lg">
         {/* Section Header */}
-        <Box sx={{ textAlign: 'center', mb: { xs: 5, md: 7 } }}>
+        <Reveal sx={{ textAlign: 'center', mb: { xs: 5, md: 7 } }}>
           <Typography
             variant="overline"
             sx={{
@@ -65,17 +66,16 @@ export default function Projects() {
           >
             A curated set of web applications and system solutions.
           </Typography>
-        </Box>
+        </Reveal>
 
         {/* Projects Grid */}
         <Grid container spacing={3} alignItems="stretch">
-          {portfolioData.projects.map((project) => (
+          {portfolioData.projects.map((project, index) => (
             <Grid
-              item
-              xs={12}
-              md={project.id === 'quscina-pos' ? 12 : 6}
+              size={{ xs: 12, md: project.id === 'quscina-pos' ? 12 : 6 }}
               key={project.id}
             >
+              <Reveal delay={index === 0 ? 0 : (index - 1) * 150} sx={{ height: '100%' }}>
               <Paper
                 elevation={0}
                 sx={{
@@ -166,6 +166,7 @@ export default function Projects() {
                   ))}
                 </Box>
               </Paper>
+              </Reveal>
             </Grid>
           ))}
         </Grid>

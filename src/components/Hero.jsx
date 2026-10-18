@@ -11,6 +11,7 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import CodeIcon from '@mui/icons-material/Code';
 import { portfolioData } from '../data/portfolioData';
+import Reveal from './Reveal';
 
 export default function Hero() {
   const theme = useTheme();
@@ -37,6 +38,7 @@ export default function Hero() {
     >
       <Container maxWidth="md">
         {/* Location / Status Eyebrow */}
+        <Reveal delay={0}>
         <Typography
           variant="overline"
           sx={{
@@ -55,8 +57,10 @@ export default function Hero() {
         >
           {portfolioData.personal.location}
         </Typography>
+        </Reveal>
 
         {/* Hero Name Headline */}
+        <Reveal delay={120}>
         <Typography
           variant="h1"
           sx={{
@@ -82,8 +86,10 @@ export default function Hero() {
           </Box>
           .
         </Typography>
+        </Reveal>
 
         {/* Role Subtitle */}
+        <Reveal delay={240}>
         <Typography
           variant="h5"
           sx={{
@@ -95,8 +101,10 @@ export default function Hero() {
         >
           {portfolioData.personal.role}
         </Typography>
+        </Reveal>
 
         {/* About summary narrative */}
+        <Reveal delay={360}>
         <Typography
           variant="body1"
           sx={{
@@ -110,8 +118,10 @@ export default function Hero() {
         >
           {portfolioData.personal.bio}
         </Typography>
+        </Reveal>
 
         {/* Action Buttons */}
+        <Reveal delay={480}>
         <Stack
           direction={{ xs: 'column', sm: 'row' }}
           spacing={2}
@@ -155,6 +165,7 @@ export default function Hero() {
             Get in Touch
           </Button>
         </Stack>
+        </Reveal>
       </Container>
     </Box>
   );
