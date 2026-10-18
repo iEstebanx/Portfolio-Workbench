@@ -1,23 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Box,
   Container,
   Typography,
   Paper,
   Chip,
-  Grid,
   Stack,
-  Divider,
   useTheme,
-  Button,
 } from '@mui/material';
-import WorkIcon from '@mui/icons-material/Work';
-import PlaceIcon from '@mui/icons-material/Place';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import ComputerIcon from '@mui/icons-material/Computer';
-import CodeIcon from '@mui/icons-material/Code';
-import BuildIcon from '@mui/icons-material/Build';
+import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
+import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
+import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 import { portfolioData } from '../data/portfolioData';
 
 export default function Experience() {
@@ -26,227 +19,146 @@ export default function Experience() {
 
   const exp = portfolioData.experience[0];
 
-  const scrollTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) {
-      const yOffset = -80;
-      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
-  };
-
   return (
     <Box
       id="experience"
       sx={{
         py: { xs: 8, md: 12 },
         position: 'relative',
-        borderTop: `1px solid ${theme.palette.divider}`,
-        borderBottom: `1px solid ${theme.palette.divider}`,
-        backgroundColor: isDark ? 'rgba(17, 24, 39, 0.3)' : 'rgba(241, 245, 249, 0.4)',
       }}
     >
       <Container maxWidth="lg">
         {/* Section Header */}
-        <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 8 } }}>
+        <Box sx={{ textAlign: 'center', mb: { xs: 5, md: 7 } }}>
           <Typography
             variant="overline"
             sx={{
               color: theme.palette.primary.main,
-              fontWeight: 800,
+              fontWeight: 700,
               letterSpacing: '0.12em',
               fontSize: '0.85rem',
               display: 'block',
               mb: 1,
             }}
           >
-            CAREER & INTERNSHIP HISTORY
+            Career
           </Typography>
           <Typography
-            variant="h2"
+            variant="h3"
             sx={{
               fontWeight: 800,
-              fontSize: { xs: '2rem', md: '2.8rem' },
-              mb: 2,
+              fontSize: { xs: '2rem', md: '2.5rem' },
+              mb: 1.5,
+              letterSpacing: '-0.02em',
             }}
           >
-            Work Experience
+            Work{' '}
+            <Box component="span" sx={{ color: theme.palette.primary.main }}>
+              Experience.
+            </Box>
           </Typography>
-          <Box
-            sx={{
-              width: 60,
-              height: 4,
-              borderRadius: 2,
-              backgroundColor: theme.palette.primary.main,
-              mx: 'auto',
-              mb: 3,
-            }}
-          />
           <Typography
             variant="body1"
             sx={{
               color: 'text.secondary',
-              maxWidth: 720,
+              maxWidth: 600,
               mx: 'auto',
-              fontSize: '1.05rem',
+              fontSize: '1.02rem',
             }}
           >
-            Hands-on professional experience applying computer skills to real organizational operations in Noveleta, Cavite.
+            Hands-on technical experience delivering web applications and IT support.
           </Typography>
         </Box>
 
-        {/* Experience Timeline Card */}
+        {/* Experience Card */}
         <Paper
           elevation={0}
           sx={{
             p: { xs: 3, sm: 4, md: 5 },
-            borderRadius: 4,
+            borderRadius: 3.5,
             border: `1px solid ${theme.palette.divider}`,
             backgroundColor: isDark ? '#111827' : '#FFFFFF',
-            position: 'relative',
-            boxShadow: isDark
-              ? '0 15px 35px -10px rgba(0, 0, 0, 0.6)'
-              : '0 15px 35px -10px rgba(0, 0, 0, 0.08)',
+            maxWidth: 900,
+            mx: 'auto',
           }}
         >
-          {/* Top Line: Company, Role, Period */}
+          {/* Header */}
           <Box
             sx={{
               display: 'flex',
-              flexDirection: { xs: 'column', md: 'row' },
+              flexDirection: { xs: 'column', sm: 'row' },
               justifyContent: 'space-between',
-              alignItems: { xs: 'flex-start', md: 'center' },
-              mb: 3,
-              gap: 2,
+              alignItems: { xs: 'flex-start', sm: 'center' },
+              mb: 2.5,
+              gap: 1.5,
             }}
           >
             <Box>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 0.8, flexWrap: 'wrap' }}>
-                <Typography variant="h5" sx={{ fontWeight: 800, fontSize: { xs: '1.3rem', md: '1.6rem' } }}>
-                  {exp.position}
-                </Typography>
-                <Chip
-                  label={exp.type}
-                  size="small"
-                  color="primary"
-                  sx={{ fontWeight: 700, borderRadius: 2 }}
-                />
-              </Box>
-
+              <Typography variant="h5" sx={{ fontWeight: 800, fontSize: { xs: '1.25rem', md: '1.45rem' } }}>
+                {exp.position}
+              </Typography>
               <Typography
                 variant="subtitle1"
                 sx={{
                   color: theme.palette.primary.main,
                   fontWeight: 700,
-                  fontSize: '1.1rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 0.8,
+                  fontSize: '1.05rem',
+                  mt: 0.3,
                 }}
               >
                 {exp.company}
               </Typography>
             </Box>
 
-            <Stack direction="row" spacing={2} flexWrap="wrap">
+            <Stack direction="row" spacing={1.5} flexWrap="wrap">
               <Chip
-                icon={<CalendarMonthIcon sx={{ fontSize: 16 }} />}
+                icon={<CalendarMonthOutlinedIcon sx={{ fontSize: 16 }} />}
                 label={exp.period}
+                size="small"
                 variant="outlined"
                 sx={{ fontWeight: 600, borderColor: theme.palette.divider }}
               />
               <Chip
-                icon={<PlaceIcon sx={{ fontSize: 16 }} />}
+                icon={<PlaceOutlinedIcon sx={{ fontSize: 16 }} />}
                 label={exp.location}
+                size="small"
                 variant="outlined"
                 sx={{ fontWeight: 600, borderColor: theme.palette.divider }}
               />
             </Stack>
           </Box>
 
-          <Typography variant="body1" sx={{ color: 'text.secondary', mb: 3.5, lineHeight: 1.75 }}>
-            {exp.description}
-          </Typography>
-
-          <Divider sx={{ my: 3 }} />
-
-          {/* Key Deliverables & Responsibilities */}
-          <Typography variant="subtitle2" sx={{ fontWeight: 800, mb: 2, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-            Key Contributions & Core Duties:
-          </Typography>
-
-          <Grid container spacing={2} sx={{ mb: 4 }}>
+          {/* Duties list */}
+          <Stack spacing={1.8} sx={{ mb: 3.5, mt: 3 }}>
             {exp.duties.map((duty, idx) => (
-              <Grid item xs={12} key={idx}>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: 1.5,
-                    p: 1.8,
-                    borderRadius: 2.5,
-                    backgroundColor: isDark ? 'rgba(255, 255, 255, 0.03)' : 'rgba(0, 0, 0, 0.02)',
-                    border: `1px solid ${theme.palette.divider}`,
-                  }}
-                >
-                  <CheckCircleIcon sx={{ fontSize: 20, color: '#10B981', mt: 0.2, flexShrink: 0 }} />
-                  <Typography variant="body2" sx={{ lineHeight: 1.7, fontWeight: 500 }}>
-                    {duty}
-                  </Typography>
-                </Box>
-              </Grid>
+              <Box key={idx} sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.5 }}>
+                <CheckCircleOutlinedIcon sx={{ fontSize: 20, color: theme.palette.primary.main, mt: 0.2, flexShrink: 0 }} />
+                <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.7, fontSize: '0.98rem' }}>
+                  {duty}
+                </Typography>
+              </Box>
             ))}
-          </Grid>
+          </Stack>
 
-          {/* Technologies & Domain Competencies */}
-          <Box sx={{ mb: 3 }}>
-            <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 700, display: 'block', mb: 1.2 }}>
-              COMPETENCIES APPLIED ON THE JOB:
-            </Typography>
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-              {exp.skillsUsed.map((skill, idx) => (
-                <Chip
-                  key={idx}
-                  label={skill}
-                  size="small"
-                  sx={{
-                    fontWeight: 600,
-                    backgroundColor: isDark ? 'rgba(99, 102, 241, 0.12)' : 'rgba(79, 70, 229, 0.08)',
-                    color: isDark ? '#A5B4FC' : '#4338CA',
-                  }}
-                />
-              ))}
-            </Box>
-          </Box>
-
-          {/* Quick links to the systems */}
-          <Box
-            sx={{
-              pt: 3,
-              borderTop: `1px solid ${theme.palette.divider}`,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              flexWrap: 'wrap',
-              gap: 2,
-            }}
-          >
-            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              Want to inspect the software created during this tenure?
-            </Typography>
-            <Button
-              variant="outlined"
-              size="small"
-              startIcon={<CodeIcon />}
-              onClick={() => scrollTo('projects')}
-              sx={{ borderRadius: 2, fontWeight: 600 }}
-            >
-              See Internship Systems
-            </Button>
+          {/* Skills tags */}
+          <Box sx={{ pt: 2.5, borderTop: `1px solid ${theme.palette.divider}`, display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+            {exp.tags.map((tag, idx) => (
+              <Chip
+                key={idx}
+                label={tag}
+                size="small"
+                sx={{
+                  fontSize: '0.8rem',
+                  fontWeight: 600,
+                  borderRadius: 1.5,
+                  backgroundColor: isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.04)',
+                  border: `1px solid ${theme.palette.divider}`,
+                }}
+              />
+            ))}
           </Box>
         </Paper>
       </Container>
     </Box>
   );
 }
-
