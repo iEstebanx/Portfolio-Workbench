@@ -117,25 +117,65 @@ export default function Navbar({ mode, onToggleMode }) {
                 cursor: 'pointer',
               }}
             >
+              {/* Standalone "CA" Geometric Symbol - No Circle */}
               <Box
                 sx={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  background: isDark
-                    ? 'linear-gradient(135deg, #0EA5E9 0%, #2563EB 100%)'
-                    : 'linear-gradient(135deg, #0284C7 0%, #1D4ED8 100%)',
-                  color: '#F8FAFC',
-                  boxShadow: isDark
-                    ? '0 4px 14px rgba(56, 189, 248, 0.35)'
-                    : '0 4px 14px rgba(3, 105, 161, 0.28)',
+                  width: 38,
+                  height: 38,
+                  flexShrink: 0,
+                  transition: 'transform 0.2s ease',
+                  '&:hover': {
+                    transform: 'scale(1.08)',
+                  },
                 }}
               >
-                <TerminalIcon sx={{ fontSize: 21 }} />
+                <svg
+                  viewBox="0 0 38 38"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ width: '100%', height: '100%', overflow: 'visible' }}
+                >
+                  <defs>
+                    <linearGradient id="ca-brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#0284C7" />
+                      <stop offset="100%" stopColor="#2563EB" />
+                    </linearGradient>
+                  </defs>
+
+                  {/* "C" Bracket */}
+                  <path
+                    d="M 16 8 L 5 19 L 16 30"
+                    stroke={isDark ? '#38BDF8' : 'url(#ca-brand-grad)'}
+                    strokeWidth="4.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+
+                  {/* "A" Chevron */}
+                  <path
+                    d="M 22 30 L 29 8 L 36 30"
+                    stroke={isDark ? '#0284C7' : '#1D4ED8'}
+                    strokeWidth="4.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+
+                  {/* "A" Crossbar */}
+                  <line
+                    x1="24.5"
+                    y1="22.5"
+                    x2="33.5"
+                    y2="22.5"
+                    stroke={isDark ? '#0284C7' : '#1D4ED8'}
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                  />
+                </svg>
               </Box>
+
               <Box>
                 <Typography
                   variant="h6"
@@ -143,35 +183,10 @@ export default function Navbar({ mode, onToggleMode }) {
                     color: 'text.primary',
                     fontWeight: 800,
                     letterSpacing: '-0.02em',
-                    lineHeight: 1.1,
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 0.3,
+                    lineHeight: 1,
                   }}
                 >
                   {portfolioData.personal.name}
-                  <Box
-                    component="span"
-                    sx={{
-                      color: theme.palette.primary.main,
-                      fontSize: '1.2em',
-                    }}
-                  >
-                    .
-                  </Box>
-                </Typography>
-                <Typography
-                  variant="caption"
-                  sx={{
-                    color: 'text.secondary',
-                    fontSize: '0.68rem',
-                    fontWeight: 700,
-                    letterSpacing: '0.08em',
-                    textTransform: 'uppercase',
-                    display: 'block',
-                  }}
-                >
-                  Portfolio
                 </Typography>
               </Box>
             </Box>
