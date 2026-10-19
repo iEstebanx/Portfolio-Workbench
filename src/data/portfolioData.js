@@ -24,7 +24,6 @@ export const portfolioData = {
         "Software Troubleshooting",
         "Peripheral Installation",
         "Computer Maintenance",
-        "Network Printers Setup",
       ],
     },
     {
