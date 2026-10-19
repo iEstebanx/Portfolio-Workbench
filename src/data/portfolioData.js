@@ -10,8 +10,16 @@ export const portfolioData = {
 
   skills: [
     {
-      title: "Frontend Frameworks & UI",
-      tags: ["React.js", "Material UI (MUI)", "Tailwind CSS", "JavaScript (ES6+)", "HTML5", "CSS3"],
+      title: "Frontend Development & UI",
+      tags: [
+        "React.js", 
+        "Material UI (MUI)", 
+        "Tailwind CSS", 
+        "JavaScript (ES6+)", 
+        "HTML5", 
+        "CSS3", 
+        "Responsive Web Design"
+      ],
     },
     {
       title: "Backend Development",
@@ -28,7 +36,7 @@ export const portfolioData = {
     },
     {
       title: "Tools & Deployment",
-      tags: ["Git", "GitHub", "Vercel", "VS Code", "Responsive Web Design"],
+      tags: ["Git", "GitHub", "Vercel", "Hostinger", "Supabase", "VS Code", "npm"],
     },
   ],
 
