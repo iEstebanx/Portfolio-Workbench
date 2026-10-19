@@ -2,7 +2,6 @@ export const portfolioData = {
   personal: {
     name: "Cedrick Aboc",
     role: "Web Developer & IT Support Specialist",
-    location: "Cavite, Philippines",
     email: "cedrick.aboc28@gmail.com",
     tagline: "Recent graduate passionate about building responsive web applications and delivering dependable IT solutions.",
     bio: "A motivated and responsible recent graduate seeking an entry-level position where I can apply my computer skills. I am eager to gain practical work experience, learn new skills, work well with others, and contribute to the team operations and deliver reliable technical solutions.",
@@ -73,7 +72,6 @@ export const portfolioData = {
   experience: [
     {
       company: "Noveleta Training Center",
-      location: "Noveleta, Cavite",
       position: "Web Development & IT Support Intern",
       period: "February 2026 – June 2026",
       duties: [

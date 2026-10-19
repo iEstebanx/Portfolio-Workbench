@@ -10,7 +10,6 @@ import {
   useTheme,
 } from '@mui/material';
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
-import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import { portfolioData } from '../data/portfolioData';
@@ -126,7 +125,7 @@ export default function About() {
                         Education
                       </Typography>
                       <Typography variant="body2" sx={{ color: 'text.primary', fontWeight: 700 }}>
-                        Recent Graduate in Computer Studies / IT
+                        Recent Graduate in Bachelor of Science in Information Technology (BSIT)
                       </Typography>
                     </Box>
                   </Box>
@@ -141,20 +140,6 @@ export default function About() {
                       </Typography>
                       <Typography variant="body2" sx={{ color: 'text.primary', fontWeight: 700 }}>
                         Web Development (React, Fastify) & IT Support
-                      </Typography>
-                    </Box>
-                  </Box>
-
-                  <Divider sx={{ borderColor: theme.palette.divider }} />
-
-                  <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
-                    <PlaceOutlinedIcon sx={{ color: theme.palette.accent.main, fontSize: 22, mt: 0.3 }} />
-                    <Box>
-                      <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 600, display: 'block' }}>
-                        Location
-                      </Typography>
-                      <Typography variant="body2" sx={{ color: 'text.primary', fontWeight: 700 }}>
-                        {portfolioData.personal.location}
                       </Typography>
                     </Box>
                   </Box>

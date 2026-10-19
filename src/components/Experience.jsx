@@ -9,7 +9,6 @@ import {
   useTheme,
 } from '@mui/material';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
-import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 import { portfolioData } from '../data/portfolioData';
 import Reveal from './Reveal';
@@ -124,20 +123,6 @@ export default function Experience() {
                 <Chip
                   icon={<CalendarMonthOutlinedIcon sx={{ fontSize: 16, color: 'text.secondary !important' }} />}
                   label={exp.period}
-                  size="small"
-                  sx={{
-                    color: 'text.primary',
-                    fontWeight: 600,
-                    borderRadius: 99,
-                    backgroundColor: isDark
-                      ? 'rgba(255, 255, 255, 0.05)'
-                      : 'rgba(12, 26, 46, 0.06)',
-                    border: `1px solid ${theme.palette.divider}`,
-                  }}
-                />
-                <Chip
-                  icon={<PlaceOutlinedIcon sx={{ fontSize: 16, color: 'text.secondary !important' }} />}
-                  label={exp.location}
                   size="small"
                   sx={{
                     color: 'text.primary',

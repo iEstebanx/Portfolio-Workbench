@@ -14,10 +14,9 @@
 
 > *"A motivated and responsible recent graduate seeking an entry-level position where I can apply my computer skills. I am eager to gain practical work experience, learn new skills, work well with others, and contribute to the team operations and deliver reliable technical solutions."*
 
-- 🎓 **Education:** Recent Graduate in Computer Studies / IT
-- 📍 **Location:** Cavite, Philippines
+- 🎓 **Education:** Recent Graduate in Bachelor of Science in Information Technology (BSIT)
 - 💼 **Primary Focus:** Web Development (React.js, Fastify) & IT Support / Hardware Maintenance
-- 📧 **Direct Contact:** [ced@gmail.com](mailto:ced@gmail.com)
+- 📧 **Direct Contact:** [cedrick.aboc28@gmail.com](mailto:cedrick.aboc28@gmail.com)
 
 ---
 
@@ -25,14 +24,14 @@
 
 - **Frontend Frameworks & UI:** React.js, Material UI (MUI), Tailwind CSS, JavaScript (ES6+), HTML5, CSS3
 - **Backend Development:** Node.js, Fastify, RESTful APIs, JSON
-- **Hardware & IT Support:** Hardware Troubleshooting, Software Troubleshooting, Peripheral Installation, Computer Maintenance, Network Printers Setup
-- **Tools & Deployment:** Git, GitHub, Vercel, VS Code, Responsive Web Design
+- **Hardware & IT Support:** Hardware Troubleshooting, Software Troubleshooting, Peripheral Installation, Computer Maintenance
+- **Tools & Deployment:** Git, GitHub, Vercel, Hostinger, Supabase, VS Code, npm
 
 ---
 
 ## 🚀 Projects
 
-1. **Web-Based Point of Sales and Inventory System of Quscina Restaurant in Kawit Cavite**
+1. **Web-Based Point of Sales and Inventory System of Quscina Restaurant**
    - The study focused on the development and implementation of a Web-Based Point of Sale, aimed at assisting in the daily operation of Quscina Restaurant. The system was created to make records and process different types of transaction and inventory information in an efficient manner through an integrated platform that enabled efficient management of business processes and operational records. The system had a number of modules, which aided in different processes used in restaurants.
    - *Tech:* React.js, Material UI (MUI), Node.js, Fastify, Inventory Management
 
@@ -48,7 +47,7 @@
 
 ## 💼 Work Experience
 
-**Noveleta Training Center** | Noveleta, Cavite  
+**Noveleta Training Center**  
 *Web Development & IT Support Intern | February 2026 – June 2026*  
 - Developed and implemented a TESDA enrollment system, eliminating manual paperwork and reducing registration turnaround times.
 - Developed a Venue Reservation System to manage and automate the scheduling and booking of training facilities.

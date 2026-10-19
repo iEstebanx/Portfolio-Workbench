@@ -36,30 +36,8 @@ export default function Hero() {
       }}
     >
       <Container maxWidth="md">
-        {/* Location / Status Eyebrow */}
-        <Reveal delay={0}>
-          <Typography
-            variant="overline"
-            sx={{
-              color: theme.palette.background.tagText,
-              fontWeight: 700,
-              letterSpacing: '0.15em',
-              fontSize: '0.82rem',
-              display: 'inline-block',
-              mb: 2.5,
-              px: 2.2,
-              py: 0.6,
-              borderRadius: 99,
-              backgroundColor: theme.palette.background.tag,
-              border: `1px solid ${theme.palette.background.tagBorder}`,
-            }}
-          >
-            {portfolioData.personal.location}
-          </Typography>
-        </Reveal>
-
         {/* Hero Name Headline */}
-        <Reveal delay={120}>
+        <Reveal delay={0}>
           <Typography
             variant="h1"
             sx={{
