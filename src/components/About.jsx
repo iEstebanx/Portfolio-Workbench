@@ -27,7 +27,7 @@ export default function About() {
         py: { xs: 8, md: 12 },
         borderTop: `1px solid ${theme.palette.divider}`,
         borderBottom: `1px solid ${theme.palette.divider}`,
-        backgroundColor: isDark ? 'rgba(255, 255, 255, 0.015)' : 'rgba(0, 0, 0, 0.015)',
+        backgroundColor: isDark ? 'rgba(9, 17, 32, 0.5)' : 'rgba(210, 224, 239, 0.45)',
       }}
     >
       <Container maxWidth="lg">
@@ -35,143 +35,145 @@ export default function About() {
           {/* Left Column: Who I Am */}
           <Grid size={{ xs: 12, md: 7 }}>
             <Reveal>
-            <Typography
-              variant="overline"
-              sx={{
-                color: theme.palette.primary.main,
-                fontWeight: 700,
-                letterSpacing: '0.12em',
-                fontSize: '0.85rem',
-                display: 'block',
-                mb: 1,
-              }}
-            >
-              Who I am
-            </Typography>
-            <Typography
-              variant="h3"
-              sx={{
-                fontWeight: 800,
-                fontSize: { xs: '2rem', md: '2.5rem' },
-                mb: 3,
-                letterSpacing: '-0.02em',
-              }}
-            >
-              About{' '}
-              <Box component="span" sx={{ color: theme.palette.primary.main }}>
-                Me.
-              </Box>
-            </Typography>
+              <Typography
+                variant="overline"
+                sx={{
+                  color: theme.palette.primary.main,
+                  fontWeight: 700,
+                  letterSpacing: '0.15em',
+                  fontSize: '0.82rem',
+                  display: 'block',
+                  mb: 1,
+                }}
+              >
+                Who I am
+              </Typography>
+              <Typography
+                variant="h3"
+                sx={{
+                  color: 'text.primary',
+                  fontWeight: 800,
+                  fontSize: { xs: '2rem', md: '2.5rem' },
+                  mb: 3,
+                  letterSpacing: '-0.02em',
+                }}
+              >
+                About{' '}
+                <Box component="span" sx={{ color: theme.palette.primary.main }}>
+                  Me.
+                </Box>
+              </Typography>
 
-            <Typography
-              variant="body1"
-              sx={{
-                color: 'text.secondary',
-                fontSize: { xs: '1.02rem', md: '1.12rem' },
-                lineHeight: 1.85,
-                mb: 3,
-              }}
-            >
-              {portfolioData.personal.bio}
-            </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  color: 'text.secondary',
+                  fontSize: { xs: '1.02rem', md: '1.1rem' },
+                  lineHeight: 1.85,
+                  mb: 3,
+                }}
+              >
+                {portfolioData.personal.bio}
+              </Typography>
 
-            <Typography
-              variant="body2"
-              sx={{
-                color: 'text.secondary',
-                lineHeight: 1.8,
-              }}
-            >
-              With practical experience developing full-stack web applications like Point of Sale & Inventory systems, automated student enrollment forms, and venue reservation management, alongside hands-on workstation troubleshooting and peripheral setup, I bring a reliable and versatile technical foundation to any team.
-            </Typography>
+              <Typography
+                variant="body2"
+                sx={{
+                  color: 'text.secondary',
+                  fontSize: '0.98rem',
+                  lineHeight: 1.8,
+                }}
+              >
+                With practical experience developing full-stack web applications like Point of Sale & Inventory systems, automated student enrollment forms, and venue reservation management, alongside hands-on workstation troubleshooting and peripheral setup, I bring a reliable and versatile technical foundation to any team.
+              </Typography>
             </Reveal>
           </Grid>
 
           {/* Right Column: Clean Profile Details Card */}
           <Grid size={{ xs: 12, md: 5 }}>
             <Reveal delay={150} sx={{ height: '100%' }}>
-            <Paper
-              elevation={0}
-              sx={{
-                p: { xs: 3, sm: 4 },
-                height: '100%',
-                borderRadius: 3.5,
-                border: `1px solid ${theme.palette.divider}`,
-                backgroundColor: isDark ? '#111827' : '#FFFFFF',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-              }}
-            >
-              <Typography
-                variant="subtitle2"
+              <Paper
+                elevation={0}
                 sx={{
-                  color: theme.palette.primary.main,
-                  fontWeight: 700,
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                  mb: 3,
+                  p: { xs: 3, sm: 4 },
+                  height: '100%',
+                  borderRadius: 3.5,
+                  border: `1px solid ${theme.palette.divider}`,
+                  backgroundColor: theme.palette.background.card,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
                 }}
               >
-                Profile Overview
-              </Typography>
+                <Typography
+                  variant="subtitle2"
+                  sx={{
+                    color: theme.palette.primary.main,
+                    fontWeight: 700,
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    mb: 3,
+                  }}
+                >
+                  Profile Overview
+                </Typography>
 
-              <Stack spacing={2.5}>
-                <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
-                  <SchoolOutlinedIcon sx={{ color: theme.palette.primary.main, fontSize: 22, mt: 0.3 }} />
-                  <Box>
-                    <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block' }}>
-                      Education
-                    </Typography>
-                    <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                      Recent Graduate in Computer Studies / IT
-                    </Typography>
+                <Stack spacing={2.5}>
+                  <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
+                    <SchoolOutlinedIcon sx={{ color: theme.palette.primary.main, fontSize: 22, mt: 0.3 }} />
+                    <Box>
+                      <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 600, display: 'block' }}>
+                        Education
+                      </Typography>
+                      <Typography variant="body2" sx={{ color: 'text.primary', fontWeight: 700 }}>
+                        Recent Graduate in Computer Studies / IT
+                      </Typography>
+                    </Box>
                   </Box>
-                </Box>
 
-                <Divider sx={{ borderColor: theme.palette.divider }} />
+                  <Divider sx={{ borderColor: theme.palette.divider }} />
 
-                <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
-                  <WorkOutlineOutlinedIcon sx={{ color: theme.palette.secondary.main, fontSize: 22, mt: 0.3 }} />
-                  <Box>
-                    <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block' }}>
-                      Focus Areas
-                    </Typography>
-                    <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                      Web Development (React, Fastify) & IT Support
-                    </Typography>
+                  <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
+                    <WorkOutlineOutlinedIcon sx={{ color: theme.palette.secondary.main, fontSize: 22, mt: 0.3 }} />
+                    <Box>
+                      <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 600, display: 'block' }}>
+                        Focus Areas
+                      </Typography>
+                      <Typography variant="body2" sx={{ color: 'text.primary', fontWeight: 700 }}>
+                        Web Development (React, Fastify) & IT Support
+                      </Typography>
+                    </Box>
                   </Box>
-                </Box>
 
-                <Divider sx={{ borderColor: theme.palette.divider }} />
+                  <Divider sx={{ borderColor: theme.palette.divider }} />
 
-                <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
-                  <PlaceOutlinedIcon sx={{ color: '#10B981', fontSize: 22, mt: 0.3 }} />
-                  <Box>
-                    <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block' }}>
-                      Location
-                    </Typography>
-                    <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                      Cavite, Philippines
-                    </Typography>
+                  <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
+                    <PlaceOutlinedIcon sx={{ color: theme.palette.accent.main, fontSize: 22, mt: 0.3 }} />
+                    <Box>
+                      <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 600, display: 'block' }}>
+                        Location
+                      </Typography>
+                      <Typography variant="body2" sx={{ color: 'text.primary', fontWeight: 700 }}>
+                        {portfolioData.personal.location}
+                      </Typography>
+                    </Box>
                   </Box>
-                </Box>
 
-                <Divider sx={{ borderColor: theme.palette.divider }} />
+                  <Divider sx={{ borderColor: theme.palette.divider }} />
 
-                <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
-                  <EmailOutlinedIcon sx={{ color: '#F59E0B', fontSize: 22, mt: 0.3 }} />
-                  <Box>
-                    <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block' }}>
-                      Contact Email
-                    </Typography>
-                    <Typography variant="body2" sx={{ fontWeight: 600, fontFamily: "'JetBrains Mono', monospace" }}>
-                      {portfolioData.personal.email}
-                    </Typography>
+                  <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
+                    <EmailOutlinedIcon sx={{ color: isDark ? '#FBBF24' : '#B45309', fontSize: 22, mt: 0.3 }} />
+                    <Box>
+                      <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 600, display: 'block' }}>
+                        Contact Email
+                      </Typography>
+                      <Typography variant="body2" sx={{ color: 'text.primary', fontWeight: 700, fontFamily: "'JetBrains Mono', monospace" }}>
+                        {portfolioData.personal.email}
+                      </Typography>
+                    </Box>
                   </Box>
-                </Box>
-              </Stack>
-            </Paper>
+                </Stack>
+              </Paper>
             </Reveal>
           </Grid>
         </Grid>

@@ -30,7 +30,6 @@ const getCategoryIcon = (index) => {
 
 export default function Skills() {
   const theme = useTheme();
-  const isDark = theme.palette.mode === 'dark';
 
   return (
     <Box
@@ -48,8 +47,8 @@ export default function Skills() {
             sx={{
               color: theme.palette.primary.main,
               fontWeight: 700,
-              letterSpacing: '0.12em',
-              fontSize: '0.85rem',
+              letterSpacing: '0.15em',
+              fontSize: '0.82rem',
               display: 'block',
               mb: 1,
             }}
@@ -59,6 +58,7 @@ export default function Skills() {
           <Typography
             variant="h3"
             sx={{
+              color: 'text.primary',
               fontWeight: 800,
               fontSize: { xs: '2rem', md: '2.5rem' },
               mb: 1.5,
@@ -95,10 +95,10 @@ export default function Skills() {
                     height: '100%',
                     borderRadius: 3.5,
                     border: `1px solid ${theme.palette.divider}`,
-                    backgroundColor: isDark ? '#111827' : '#FFFFFF',
+                    backgroundColor: theme.palette.background.card,
                     display: 'flex',
                     flexDirection: 'column',
-                    transition: 'transform 0.2s ease, border-color 0.2s ease',
+                    transition: 'transform 0.25s ease, border-color 0.25s ease',
                     '&:hover': {
                       transform: 'translateY(-3px)',
                       borderColor: theme.palette.primary.main,
@@ -115,15 +115,14 @@ export default function Skills() {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        backgroundColor: isDark
-                          ? 'rgba(99, 102, 241, 0.12)'
-                          : 'rgba(79, 70, 229, 0.08)',
+                        backgroundColor: theme.palette.background.tag,
+                        border: `1px solid ${theme.palette.background.tagBorder}`,
                         color: theme.palette.primary.main,
                       }}
                     >
                       {getCategoryIcon(index)}
                     </Box>
-                    <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1.1rem' }}>
+                    <Typography variant="h6" sx={{ color: 'text.primary', fontWeight: 700, fontSize: '1.1rem' }}>
                       {category.title}
                     </Typography>
                   </Box>
@@ -137,14 +136,12 @@ export default function Skills() {
                         sx={{
                           fontSize: '0.82rem',
                           fontWeight: 600,
-                          py: 2,
+                          py: 1.8,
                           px: 0.5,
-                          borderRadius: 2,
-                          backgroundColor: isDark
-                            ? 'rgba(255, 255, 255, 0.05)'
-                            : 'rgba(0, 0, 0, 0.04)',
-                          border: `1px solid ${theme.palette.divider}`,
-                          color: 'text.primary',
+                          borderRadius: 99,
+                          backgroundColor: theme.palette.background.tag,
+                          border: `1px solid ${theme.palette.background.tagBorder}`,
+                          color: theme.palette.background.tagText,
                         }}
                       />
                     ))}

@@ -22,7 +22,7 @@ export default function Projects() {
         py: { xs: 8, md: 12 },
         borderTop: `1px solid ${theme.palette.divider}`,
         borderBottom: `1px solid ${theme.palette.divider}`,
-        backgroundColor: isDark ? 'rgba(255, 255, 255, 0.015)' : 'rgba(0, 0, 0, 0.015)',
+        backgroundColor: isDark ? 'rgba(9, 17, 32, 0.5)' : 'rgba(210, 224, 239, 0.45)',
       }}
     >
       <Container maxWidth="lg">
@@ -33,8 +33,8 @@ export default function Projects() {
             sx={{
               color: theme.palette.primary.main,
               fontWeight: 700,
-              letterSpacing: '0.12em',
-              fontSize: '0.85rem',
+              letterSpacing: '0.15em',
+              fontSize: '0.82rem',
               display: 'block',
               mb: 1,
             }}
@@ -44,6 +44,7 @@ export default function Projects() {
           <Typography
             variant="h3"
             sx={{
+              color: 'text.primary',
               fontWeight: 800,
               fontSize: { xs: '2rem', md: '2.5rem' },
               mb: 1.5,
@@ -76,96 +77,130 @@ export default function Projects() {
               key={project.id}
             >
               <Reveal delay={index === 0 ? 0 : (index - 1) * 150} sx={{ height: '100%' }}>
-              <Paper
-                elevation={0}
-                sx={{
-                  p: { xs: 3, md: 4 },
-                  height: '100%',
-                  borderRadius: 3.5,
-                  border: `1px solid ${theme.palette.divider}`,
-                  backgroundColor: isDark ? '#111827' : '#FFFFFF',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  transition: 'transform 0.2s ease, border-color 0.2s ease',
-                  '&:hover': {
-                    transform: 'translateY(-3px)',
-                    borderColor: theme.palette.primary.main,
-                  },
-                }}
-              >
-                {/* Top: Status & Category */}
-                <Box
+                <Paper
+                  elevation={0}
                   sx={{
+                    p: { xs: 3, md: 4 },
+                    height: '100%',
+                    borderRadius: 3.5,
+                    border: `1px solid ${theme.palette.divider}`,
+                    backgroundColor: theme.palette.background.card,
                     display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    flexWrap: 'wrap',
-                    gap: 1,
-                    mb: 2,
+                    flexDirection: 'column',
+                    transition: 'transform 0.25s ease, border-color 0.25s ease',
+                    '&:hover': {
+                      transform: 'translateY(-3px)',
+                      borderColor: theme.palette.primary.main,
+                    },
                   }}
                 >
-                  <Chip
-                    label={project.status}
-                    size="small"
-                    color={project.id === 'quscina-pos' ? 'primary' : 'default'}
+                  {/* Top: Status & Category */}
+                  <Box
                     sx={{
-                      fontWeight: 700,
-                      fontSize: '0.75rem',
-                      borderRadius: 1.5,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      flexWrap: 'wrap',
+                      gap: 1,
+                      mb: 2,
                     }}
-                  />
-                  <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 600 }}>
-                    {project.category}
-                  </Typography>
-                </Box>
-
-                {/* Title */}
-                <Typography
-                  variant="h5"
-                  sx={{
-                    fontWeight: 800,
-                    fontSize: { xs: '1.25rem', md: '1.45rem' },
-                    lineHeight: 1.35,
-                    mb: 2,
-                  }}
-                >
-                  {project.title}
-                </Typography>
-
-                {/* Description */}
-                <Typography
-                  variant="body2"
-                  sx={{
-                    color: 'text.secondary',
-                    lineHeight: 1.8,
-                    mb: 3,
-                    flexGrow: 1,
-                    fontSize: '0.95rem',
-                  }}
-                >
-                  {project.description}
-                </Typography>
-
-                {/* Tech Tags */}
-                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.8, pt: 1, borderTop: `1px solid ${theme.palette.divider}` }}>
-                  {project.tags.map((tag, tagIndex) => (
+                  >
                     <Chip
-                      key={tagIndex}
-                      label={tag}
+                      icon={
+                        <Box
+                          sx={{
+                            width: 7,
+                            height: 7,
+                            borderRadius: '50%',
+                            backgroundColor: '#10B981',
+                            boxShadow: '0 0 8px #10B981',
+                            ml: 1,
+                          }}
+                        />
+                      }
+                      label={project.status}
                       size="small"
                       sx={{
-                        fontSize: '0.78rem',
-                        fontWeight: 600,
-                        borderRadius: 1.5,
+                        fontWeight: 700,
+                        fontSize: '0.74rem',
+                        letterSpacing: '0.04em',
+                        textTransform: 'uppercase',
+                        borderRadius: 99,
+                        color: 'text.primary',
                         backgroundColor: isDark
-                          ? 'rgba(255, 255, 255, 0.05)'
-                          : 'rgba(0, 0, 0, 0.04)',
+                          ? 'rgba(255, 255, 255, 0.06)'
+                          : 'rgba(12, 26, 46, 0.07)',
                         border: `1px solid ${theme.palette.divider}`,
                       }}
                     />
-                  ))}
-                </Box>
-              </Paper>
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        color: theme.palette.primary.main,
+                        fontWeight: 700,
+                        letterSpacing: '0.08em',
+                        textTransform: 'uppercase',
+                      }}
+                    >
+                      {project.category}
+                    </Typography>
+                  </Box>
+
+                  {/* Title */}
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      color: 'text.primary',
+                      fontWeight: 800,
+                      fontSize: { xs: '1.25rem', md: '1.45rem' },
+                      lineHeight: 1.35,
+                      mb: 2,
+                    }}
+                  >
+                    {project.title}
+                  </Typography>
+
+                  {/* Description */}
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: 'text.secondary',
+                      lineHeight: 1.8,
+                      mb: 3,
+                      flexGrow: 1,
+                      fontSize: '0.96rem',
+                    }}
+                  >
+                    {project.description}
+                  </Typography>
+
+                  {/* Tech Tags */}
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      gap: 0.8,
+                      pt: 2,
+                      borderTop: `1px solid ${theme.palette.divider}`,
+                    }}
+                  >
+                    {project.tags.map((tag, tagIndex) => (
+                      <Chip
+                        key={tagIndex}
+                        label={tag}
+                        size="small"
+                        sx={{
+                          fontSize: '0.78rem',
+                          fontWeight: 600,
+                          borderRadius: 99,
+                          backgroundColor: theme.palette.background.tag,
+                          border: `1px solid ${theme.palette.background.tagBorder}`,
+                          color: theme.palette.background.tagText,
+                        }}
+                      />
+                    ))}
+                  </Box>
+                </Paper>
               </Reveal>
             </Grid>
           ))}

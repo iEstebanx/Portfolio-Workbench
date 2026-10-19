@@ -4,15 +4,12 @@ import {
   Container,
   Typography,
   Stack,
-  IconButton,
   Button,
   useTheme,
   Divider,
 } from '@mui/material';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import TerminalIcon from '@mui/icons-material/Terminal';
-import EmailIcon from '@mui/icons-material/Email';
-import GitHubIcon from '@mui/icons-material/GitHub';
 import { portfolioData } from '../data/portfolioData';
 
 export default function Footer() {
@@ -37,7 +34,7 @@ export default function Footer() {
       component="footer"
       sx={{
         py: 6,
-        backgroundColor: isDark ? '#080C14' : '#F1F5F9',
+        backgroundColor: isDark ? '#040811' : '#CFDEEE',
         borderTop: `1px solid ${theme.palette.divider}`,
       }}
     >
@@ -56,25 +53,27 @@ export default function Footer() {
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.2 }}>
             <Box
               sx={{
-                width: 32,
-                height: 32,
-                borderRadius: 2,
+                width: 34,
+                height: 34,
+                borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                backgroundColor: theme.palette.primary.main,
-                color: '#fff',
+                background: isDark
+                  ? 'linear-gradient(135deg, #0EA5E9 0%, #2563EB 100%)'
+                  : 'linear-gradient(135deg, #0284C7 0%, #1D4ED8 100%)',
+                color: '#F8FAFC',
               }}
             >
               <TerminalIcon sx={{ fontSize: 18 }} />
             </Box>
-            <Typography variant="h6" sx={{ fontWeight: 800 }}>
+            <Typography variant="h6" sx={{ color: 'text.primary', fontWeight: 800 }}>
               {portfolioData.personal.name}
               <Box component="span" sx={{ color: theme.palette.primary.main }}>
                 .
               </Box>
             </Typography>
-            <Typography variant="body2" sx={{ color: 'text.secondary', ml: 1 }}>
+            <Typography variant="body2" sx={{ color: 'text.secondary', fontWeight: 500, ml: 0.5 }}>
               • {portfolioData.personal.role}
             </Typography>
           </Box>
@@ -92,7 +91,12 @@ export default function Footer() {
                   fontWeight: 600,
                   p: 0,
                   minWidth: 'auto',
-                  '&:hover': { color: theme.palette.primary.main, backgroundColor: 'transparent' },
+                  '&:hover': {
+                    color: theme.palette.primary.main,
+                    backgroundColor: 'transparent',
+                    transform: 'none',
+                    boxShadow: 'none',
+                  },
                 }}
               >
                 {item}
@@ -107,17 +111,18 @@ export default function Footer() {
             onClick={scrollToTop}
             startIcon={<KeyboardArrowUpIcon />}
             sx={{
-              borderRadius: 2,
-              color: 'text.secondary',
+              borderRadius: 99,
+              color: 'text.primary',
               borderColor: theme.palette.divider,
               fontSize: '0.8rem',
+              px: 2,
             }}
           >
             Back to Top
           </Button>
         </Box>
 
-        <Divider sx={{ mb: 3 }} />
+        <Divider sx={{ mb: 3, borderColor: theme.palette.divider }} />
 
         <Box
           sx={{
@@ -128,11 +133,11 @@ export default function Footer() {
             gap: 1.5,
           }}
         >
-          <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+          <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 500 }}>
             © {new Date().getFullYear()} {portfolioData.personal.name}. Built with React.js & Material UI (MUI).
           </Typography>
 
-          <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+          <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 500 }}>
             Optimized for seamless deployment on <strong>Vercel</strong> & <strong>GitHub Pages</strong>.
           </Typography>
         </Box>
@@ -140,4 +145,3 @@ export default function Footer() {
     </Box>
   );
 }
-

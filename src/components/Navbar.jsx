@@ -36,6 +36,7 @@ export default function Navbar({ mode, onToggleMode }) {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('about');
   const theme = useTheme();
+  const isDark = mode === 'dark';
 
   const handleDrawerToggle = () => {
     setMobileOpen((prev) => !prev);
@@ -49,7 +50,6 @@ export default function Navbar({ mode, onToggleMode }) {
         setScrolled(false);
       }
 
-      // Track active section
       const sections = ['about', 'skills', 'projects', 'experience', 'contact'];
       const scrollPos = window.scrollY + 200;
 
@@ -84,19 +84,21 @@ export default function Navbar({ mode, onToggleMode }) {
     <>
       <AppBar
         position="fixed"
-        elevation={scrolled ? 4 : 0}
+        color="transparent"
+        elevation={0}
         sx={{
+          color: 'text.primary',
           backgroundColor: scrolled
-            ? mode === 'dark'
-              ? 'rgba(11, 15, 25, 0.85)'
-              : 'rgba(255, 255, 255, 0.9)'
+            ? isDark
+              ? 'rgba(5, 11, 22, 0.85)'
+              : 'rgba(215, 228, 242, 0.85)'
             : 'transparent',
           backdropFilter: scrolled ? 'blur(16px)' : 'none',
           borderBottom: scrolled
             ? `1px solid ${theme.palette.divider}`
             : '1px solid transparent',
           transition: 'all 0.3s ease',
-          zIndex: (theme) => theme.zIndex.drawer + 1,
+          zIndex: (t) => t.zIndex.drawer + 1,
         }}
       >
         <Container maxWidth="lg">
@@ -104,45 +106,47 @@ export default function Navbar({ mode, onToggleMode }) {
             {/* Logo / Brand */}
             <Box
               component="a"
-              href="#about"
-              onClick={(e) => scrollToSection(e, '#about')}
+              href="#hero"
+              onClick={(e) => scrollToSection(e, '#hero')}
               sx={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: 1.2,
+                gap: 1.4,
                 textDecoration: 'none',
-                color: 'inherit',
+                color: 'text.primary',
                 cursor: 'pointer',
               }}
             >
               <Box
                 sx={{
-                  width: 38,
-                  height: 38,
-                  borderRadius: 2.5,
+                  width: 40,
+                  height: 40,
+                  borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  background:
-                    mode === 'dark'
-                      ? 'linear-gradient(135deg, #6366F1 0%, #06B6D4 100%)'
-                      : 'linear-gradient(135deg, #4F46E5 0%, #0284C7 100%)',
-                  color: '#fff',
-                  boxShadow: '0 4px 12px rgba(99, 102, 241, 0.3)',
+                  background: isDark
+                    ? 'linear-gradient(135deg, #0EA5E9 0%, #2563EB 100%)'
+                    : 'linear-gradient(135deg, #0284C7 0%, #1D4ED8 100%)',
+                  color: '#F8FAFC',
+                  boxShadow: isDark
+                    ? '0 4px 14px rgba(56, 189, 248, 0.35)'
+                    : '0 4px 14px rgba(3, 105, 161, 0.28)',
                 }}
               >
-                <TerminalIcon sx={{ fontSize: 22 }} />
+                <TerminalIcon sx={{ fontSize: 21 }} />
               </Box>
               <Box>
                 <Typography
                   variant="h6"
                   sx={{
+                    color: 'text.primary',
                     fontWeight: 800,
                     letterSpacing: '-0.02em',
                     lineHeight: 1.1,
                     display: 'flex',
                     alignItems: 'center',
-                    gap: 0.5,
+                    gap: 0.3,
                   }}
                 >
                   {portfolioData.personal.name}
@@ -161,9 +165,10 @@ export default function Navbar({ mode, onToggleMode }) {
                   sx={{
                     color: 'text.secondary',
                     fontSize: '0.68rem',
-                    fontWeight: 600,
-                    letterSpacing: '0.05em',
+                    fontWeight: 700,
+                    letterSpacing: '0.08em',
                     textTransform: 'uppercase',
+                    display: 'block',
                   }}
                 >
                   Portfolio
@@ -171,8 +176,21 @@ export default function Navbar({ mode, onToggleMode }) {
               </Box>
             </Box>
 
-            {/* Desktop Navigation Links */}
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 1 }}>
+            {/* Desktop Navigation Pill Bar */}
+            <Box
+              sx={{
+                display: { xs: 'none', md: 'flex' },
+                alignItems: 'center',
+                gap: 0.5,
+                p: 0.6,
+                borderRadius: 99,
+                backgroundColor: isDark
+                  ? 'rgba(12, 21, 39, 0.72)'
+                  : 'rgba(237, 243, 250, 0.78)',
+                border: `1px solid ${theme.palette.divider}`,
+                backdropFilter: 'blur(12px)',
+              }}
+            >
               {navItems.map((item) => {
                 const isActive = activeSection === item.href.replace('#', '');
                 return (
@@ -180,24 +198,23 @@ export default function Navbar({ mode, onToggleMode }) {
                     key={item.label}
                     onClick={(e) => scrollToSection(e, item.href)}
                     sx={{
-                      color: isActive ? theme.palette.primary.main : 'text.primary',
-                      fontWeight: isActive ? 700 : 500,
-                      fontSize: '0.92rem',
-                      px: 2,
-                      py: 0.8,
-                      position: 'relative',
-                      borderRadius: 2,
+                      color: isActive ? 'text.primary' : 'text.secondary',
+                      fontWeight: isActive ? 700 : 600,
+                      fontSize: '0.88rem',
+                      px: 2.2,
+                      py: 0.7,
+                      borderRadius: 99,
                       backgroundColor: isActive
-                        ? mode === 'dark'
-                          ? 'rgba(99, 102, 241, 0.12)'
-                          : 'rgba(79, 70, 229, 0.08)'
+                        ? theme.palette.background.tag
                         : 'transparent',
+                      border: isActive
+                        ? `1px solid ${theme.palette.background.tagBorder}`
+                        : '1px solid transparent',
                       '&:hover': {
-                        backgroundColor:
-                          mode === 'dark'
-                            ? 'rgba(255, 255, 255, 0.06)'
-                            : 'rgba(0, 0, 0, 0.04)',
-                        color: theme.palette.primary.main,
+                        backgroundColor: theme.palette.background.tag,
+                        color: 'text.primary',
+                        transform: 'none',
+                        boxShadow: 'none',
                       },
                     }}
                   >
@@ -209,30 +226,27 @@ export default function Navbar({ mode, onToggleMode }) {
 
             {/* Actions: Theme Toggle & Quick CTA */}
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-              <Tooltip title={mode === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}>
+              <Tooltip title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}>
                 <IconButton
                   onClick={onToggleMode}
-                  color="inherit"
                   sx={{
+                    color: 'text.primary',
                     border: `1px solid ${theme.palette.divider}`,
-                    borderRadius: 2,
+                    borderRadius: 2.5,
                     p: 1,
-                    backgroundColor:
-                      mode === 'dark'
-                        ? 'rgba(255, 255, 255, 0.04)'
-                        : 'rgba(0, 0, 0, 0.02)',
+                    backgroundColor: isDark
+                      ? 'rgba(12, 21, 39, 0.75)'
+                      : 'rgba(237, 243, 250, 0.85)',
                     '&:hover': {
-                      backgroundColor:
-                        mode === 'dark'
-                          ? 'rgba(255, 255, 255, 0.1)'
-                          : 'rgba(0, 0, 0, 0.06)',
+                      backgroundColor: theme.palette.background.tag,
+                      borderColor: theme.palette.primary.main,
                     },
                   }}
                 >
-                  {mode === 'dark' ? (
+                  {isDark ? (
                     <LightModeOutlinedIcon sx={{ fontSize: 20, color: '#FBBF24' }} />
                   ) : (
-                    <DarkModeOutlinedIcon sx={{ fontSize: 20, color: '#4B5563' }} />
+                    <DarkModeOutlinedIcon sx={{ fontSize: 20, color: '#0369A1' }} />
                   )}
                 </IconButton>
               </Tooltip>
@@ -255,15 +269,18 @@ export default function Navbar({ mode, onToggleMode }) {
 
               {/* Mobile Hamburger Button */}
               <IconButton
-                color="inherit"
                 aria-label="open navigation drawer"
                 edge="end"
                 onClick={handleDrawerToggle}
                 sx={{
+                  color: 'text.primary',
                   display: { md: 'none' },
                   border: `1px solid ${theme.palette.divider}`,
                   borderRadius: 2,
                   p: 1,
+                  backgroundColor: isDark
+                    ? 'rgba(12, 21, 39, 0.75)'
+                    : 'rgba(237, 243, 250, 0.85)',
                 }}
               >
                 <MenuIcon />
@@ -285,14 +302,15 @@ export default function Navbar({ mode, onToggleMode }) {
             maxWidth: 320,
             p: 3,
             backgroundColor: theme.palette.background.paper,
+            color: 'text.primary',
           },
         }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 3 }}>
-          <Typography variant="h6" fontWeight={700}>
+          <Typography variant="h6" fontWeight={700} color="text.primary">
             Navigation
           </Typography>
-          <IconButton onClick={handleDrawerToggle} edge="end">
+          <IconButton onClick={handleDrawerToggle} edge="end" sx={{ color: 'text.primary' }}>
             <CloseIcon />
           </IconButton>
         </Box>
@@ -307,9 +325,7 @@ export default function Navbar({ mode, onToggleMode }) {
                   sx={{
                     borderRadius: 2,
                     backgroundColor: isActive
-                      ? mode === 'dark'
-                        ? 'rgba(99, 102, 241, 0.15)'
-                        : 'rgba(79, 70, 229, 0.1)'
+                      ? theme.palette.background.tag
                       : 'transparent',
                     color: isActive ? theme.palette.primary.main : 'text.primary',
                   }}
@@ -317,7 +333,7 @@ export default function Navbar({ mode, onToggleMode }) {
                   <ListItemText
                     primary={item.label}
                     primaryTypographyProps={{
-                      fontWeight: isActive ? 700 : 500,
+                      fontWeight: isActive ? 700 : 600,
                       fontSize: '1.05rem',
                     }}
                   />
@@ -343,4 +359,3 @@ export default function Navbar({ mode, onToggleMode }) {
     </>
   );
 }
-

@@ -60,7 +60,7 @@ export default function Contact() {
       sx={{
         py: { xs: 8, md: 12 },
         borderTop: `1px solid ${theme.palette.divider}`,
-        backgroundColor: isDark ? 'rgba(255, 255, 255, 0.015)' : 'rgba(0, 0, 0, 0.015)',
+        backgroundColor: isDark ? 'rgba(9, 17, 32, 0.5)' : 'rgba(210, 224, 239, 0.45)',
       }}
     >
       <Container maxWidth="md">
@@ -71,8 +71,8 @@ export default function Contact() {
             sx={{
               color: theme.palette.primary.main,
               fontWeight: 700,
-              letterSpacing: '0.12em',
-              fontSize: '0.85rem',
+              letterSpacing: '0.15em',
+              fontSize: '0.82rem',
               display: 'block',
               mb: 1,
             }}
@@ -82,6 +82,7 @@ export default function Contact() {
           <Typography
             variant="h3"
             sx={{
+              color: 'text.primary',
               fontWeight: 800,
               fontSize: { xs: '2rem', md: '2.5rem' },
               mb: 1.5,
@@ -114,8 +115,8 @@ export default function Contact() {
               gap: 1.5,
               p: 1,
               pl: 2.5,
-              borderRadius: 3,
-              backgroundColor: isDark ? '#111827' : '#FFFFFF',
+              borderRadius: 99,
+              backgroundColor: theme.palette.background.card,
               border: `1px solid ${theme.palette.divider}`,
             }}
           >
@@ -136,7 +137,7 @@ export default function Contact() {
               color="primary"
               onClick={handleCopyEmail}
               startIcon={copied ? <CheckCircleIcon sx={{ fontSize: 16 }} /> : <ContentCopyIcon sx={{ fontSize: 16 }} />}
-              sx={{ borderRadius: 2, fontSize: '0.78rem', py: 0.6, px: 1.5 }}
+              sx={{ borderRadius: 99, fontSize: '0.78rem', py: 0.6, px: 1.8 }}
             >
               {copied ? 'Copied' : 'Copy'}
             </Button>
@@ -153,7 +154,7 @@ export default function Contact() {
               p: { xs: 3, sm: 4.5 },
               borderRadius: 3.5,
               border: `1px solid ${theme.palette.divider}`,
-              backgroundColor: isDark ? '#111827' : '#FFFFFF',
+              backgroundColor: theme.palette.background.card,
               maxWidth: 640,
               mx: 'auto',
             }}

@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { ThemeProvider, CssBaseline, Box } from '@mui/material';
+import { Analytics } from '@vercel/analytics/react';
 import { getAppTheme } from './theme';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -25,6 +26,7 @@ export default function App() {
   };
 
   const theme = useMemo(() => getAppTheme(mode), [mode]);
+  const isDark = mode === 'dark';
 
   return (
     <ThemeProvider theme={theme}>
@@ -35,8 +37,12 @@ export default function App() {
           display: 'flex',
           flexDirection: 'column',
           backgroundColor: 'background.default',
+          backgroundImage: isDark
+            ? 'radial-gradient(circle at 18% 12%, rgba(56, 189, 248, 0.10) 0%, transparent 45%), radial-gradient(circle at 82% 75%, rgba(99, 102, 241, 0.10) 0%, transparent 50%)'
+            : 'radial-gradient(circle at 18% 12%, rgba(2, 132, 199, 0.12) 0%, transparent 45%), radial-gradient(circle at 82% 75%, rgba(37, 99, 235, 0.08) 0%, transparent 50%)',
+          backgroundAttachment: 'fixed',
           color: 'text.primary',
-          transition: 'background-color 0.3s ease, color 0.3s ease',
+          transition: 'background-color 0.35s ease, color 0.35s ease',
         }}
       >
         <Navbar mode={mode} onToggleMode={toggleMode} />
@@ -50,6 +56,7 @@ export default function App() {
         </Box>
         <Footer />
       </Box>
+      <Analytics />
     </ThemeProvider>
   );
 }
