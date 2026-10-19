@@ -33,7 +33,7 @@
 ## 🚀 Projects
 
 1. **Web-Based Point of Sales and Inventory System of Quscina Restaurant in Kawit Cavite**
-   - The study focused on the development and implementation of a Web-Based Point of Sale, aimed at assisting in the daily operation of Quscina Restaurant. The system was created to make records and process different types of transaction and inventory information in an efficient manner through an integrated platform that enabled efficient management of business processes and operational records. The system had a number of modules, which aided in different processes used in restaurants.
+   - The study focused on the development and implementation of a Web-Based Point of Sale, aimed at assisting in the daily operation of Quscina Restaurant. The system was created to make records and process different types of transaction and inventory information in an efficient manner through an integrated platform that enabled efficient management of business processes and operational records. The system had a number of modules, which helps in different processes used in restaurants.
    - *Tech:* React.js, Material UI (MUI), Node.js, Fastify, Inventory Management
 
 2. **TESDA Automated Student Enrollment System**
